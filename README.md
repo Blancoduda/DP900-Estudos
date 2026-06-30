@@ -2,6 +2,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/Blancoduda/DP900-Estudos?style=for-the-badge)
 ![Repo Size](https://img.shields.io/github/repo-size/Blancoduda/DP900-Estudos?style=for-the-badge)
 ![License](https://img.shields.io/github/license/Blancoduda/DP900-Estudos?style=for-the-badge)
+
 ![Status](https://img.shields.io/badge/Status-Em%20Andamento-success?style=for-the-badge)
 ![Certificação](https://img.shields.io/badge/Microsoft-DP--900-0078D4?style=for-the-badge&logo=microsoft)
 ![Idioma](https://img.shields.io/badge/Idioma-Português-green?style=for-the-badge)
