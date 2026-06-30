@@ -28,18 +28,18 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 ## 📂 Estrutura
 
 ```
-📦 DP900-Estudos
- ├── 01-Conceitos-de-Dados
- ├── 02-Bancos-Relacionais
- ├── 03-Bancos-Nao-Relacionais
- ├── 04-Azure-SQL
- ├── 05-Azure-Storage
- ├── 06-Azure-CosmosDB
- ├── 07-Analytics
- ├── 08-Microsoft-Fabric
- ├── 09-Power-BI
- ├── 10-Simulados
- └── README.md
+| Módulo | Tema | Status | Link |
+|---|---|---|---|
+| 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
+| 02 | Bancos Relacionais | ⏳ Em breve | - |
+| 03 | Bancos Não Relacionais | ⏳ Em breve | - |
+| 04 | Azure SQL | ⏳ Em breve | - |
+| 05 | Azure Storage | ⏳ Em breve | - |
+| 06 | Azure Cosmos DB | ⏳ Em breve | - |
+| 07 | Analytics | ⏳ Em breve | - |
+| 08 | Microsoft Fabric | ⏳ Em breve | - |
+| 09 | Power BI | ⏳ Em breve | - |
+| 10 | Simulados | ⏳ Em breve | - |
 ```
 
 ## 🛠️ Tecnologias e Serviços
