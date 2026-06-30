@@ -47,7 +47,7 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | 09 | Power BI | ⏳ Em breve | - |
 | 10 | Simulados | ⏳ Em breve | - |
 
-## Ferramentar estudadas
+## 🛠️ Ferramentas Estudadas
 
 <img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP-900" width="100%">
 
