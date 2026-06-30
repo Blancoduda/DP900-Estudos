@@ -27,7 +27,6 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 
 ## 📂 Estrutura
 
-```
 | Módulo | Tema | Status | Link |
 |---|---|---|---|
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
@@ -40,7 +39,7 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | 08 | Microsoft Fabric | ⏳ Em breve | - |
 | 09 | Power BI | ⏳ Em breve | - |
 | 10 | Simulados | ⏳ Em breve | - |
-```
+
 
 ## 🛠️ Tecnologias e Serviços
 
