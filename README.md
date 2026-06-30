@@ -4,7 +4,9 @@
 ![GitHub stars](https://img.shields.io/github/stars/Blancoduda/DP900-Estudos?style=social)
 ![GitHub license](https://img.shields.io/github/license/Blancoduda/DP900-Estudos)
 
-![DP-900](https://img.shields.io/badge/Microsoft-DP--900-blue?style=for-the-badge&logo=microsoft)
+![Status](https://img.shields.io/badge/Status-Em%20Andamento-success?style=for-the-badge)
+![Certificação](https://img.shields.io/badge/Microsoft-DP--900-0078D4?style=for-the-badge&logo=microsoft)
+![Idioma](https://img.shields.io/badge/Idioma-Português-green?style=for-the-badge)
 
 Bem-vindo(a) ao meu repositório de estudos para a certificação **Microsoft DP-900: Azure Data Fundamentals**.
 
