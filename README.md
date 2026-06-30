@@ -49,7 +49,7 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 
 ## 🛠️ Tecnologia e Serviços
 
-<img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP-900" width="100%">
+<img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP900" width="100%">
 
 ## 📅 Status
 
