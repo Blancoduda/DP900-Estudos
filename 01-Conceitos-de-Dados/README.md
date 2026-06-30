@@ -1,0 +1,482 @@
+# 📊 01 - Conceitos de Dados
+
+## 🎯 Objetivo
+
+Explorar os principais conceitos de dados cobrados na certificação **Microsoft DP-900: Azure Data Fundamentals**, incluindo tipos de dados, estruturas de armazenamento, formatos de arquivos e conceitos importantes para análise e engenharia de dados.
+
+---
+
+# Explore os principais conceitos de dados
+
+Os dados são uma coleção de fatos, como números, descrições e observações usados para registrar informações. As estruturas de dados nas quais esses dados são organizados geralmente representam entidades que são importantes para uma organização, como clientes, produtos, ordens de venda etc.
+
+Normalmente, cada entidade tem um ou mais atributos ou características. Por exemplo, um cliente pode ter:
+
+* Nome
+* Endereço
+* Número de telefone
+* E-mail
+
+📌 **Exemplo prático:**
+
+| Entidade       | Atributos                                 |
+| -------------- | ----------------------------------------- |
+| Cliente        | Nome, endereço, telefone, e-mail          |
+| Produto        | Código, nome, preço, categoria            |
+| Ordem de venda | Número do pedido, cliente, produto, valor |
+
+---
+
+# Dados estruturados
+
+Dados estruturados obedecem a um esquema fixo, portanto, todos os dados têm os mesmos campos ou propriedades.
+
+Normalmente, o esquema para entidades de dados estruturados é tabular. Em outras palavras, os dados são representados em uma ou mais tabelas que consistem em linhas para representar cada instância de uma entidade de dados e colunas para representar os atributos da entidade.
+
+📌 **Exemplo:**
+
+| ID | Nome | Cidade       | Telefone   |
+| -- | ---- | ------------ | ---------- |
+| 1  | Ana  | Porto Alegre | 99999-0000 |
+| 2  | João | São Paulo    | 98888-0000 |
+
+✅ Exemplos de uso:
+
+* Bancos relacionais
+* SQL Server
+* Azure SQL Database
+* PostgreSQL
+* MySQL
+* Planilhas estruturadas
+
+💡 **Dica para a DP-900:**
+Dados estruturados geralmente aparecem relacionados a bancos relacionais, tabelas, linhas, colunas e SQL.
+
+---
+
+# Dados semiestruturados
+
+Dados semiestruturados são informações que têm alguma estrutura, mas que permitem alguma variação entre instâncias da entidade.
+
+Por exemplo, embora a maioria dos clientes possa ter um endereço de email, alguns podem ter vários endereços de email e outros podem não ter nenhum.
+
+Um formato comum para dados semiestruturados é o **JSON (JavaScript Object Notation)**.
+
+📌 **Exemplo em JSON:**
+
+```json
+{
+  "cliente": "Eduarda",
+  "cidade": "Porto Alegre",
+  "emails": [
+    "eduarda@email.com",
+    "contato@email.com"
+  ]
+}
+```
+
+✅ Exemplos de uso:
+
+* APIs REST
+* Arquivos JSON
+* Documentos em bancos NoSQL
+* Azure Cosmos DB
+
+💡 **Dica para a DP-900:**
+Dados semiestruturados não seguem um esquema fixo como uma tabela, mas ainda possuem alguma organização.
+
+---
+
+# Dados não estruturados
+
+Nem todos os dados são estruturados ou até mesmo semiestruturados.
+
+Por exemplo:
+
+* Documentos
+* Imagens
+* Áudios
+* Vídeos
+* Arquivos binários
+
+Esses dados podem não ter uma estrutura específica. Esse tipo de dado é conhecido como **dado não estruturado**.
+
+As organizações também estão trabalhando cada vez mais com **dados de vetor**, também chamados de **inserções** ou **embeddings**. Esse tipo de dado permite que assistentes de IA respondam perguntas sobre documentos e dados próprios.
+
+✅ Exemplos de uso:
+
+* Imagens armazenadas em data lakes
+* Vídeos
+* Arquivos PDF
+* Documentos Word
+* Áudios
+* Dados usados em IA generativa
+
+💡 **Dica para a DP-900:**
+Dados não estruturados costumam ser armazenados em serviços como **Azure Blob Storage** ou **Azure Data Lake Storage**.
+
+---
+
+# Armazenamentos de dados
+
+As organizações normalmente armazenam dados em formato estruturado, semiestruturado ou não estruturado para registrar detalhes de entidades, eventos específicos ou outras informações.
+
+Exemplos:
+
+* Clientes
+* Produtos
+* Transações de vendas
+* Documentos
+* Imagens
+* Logs
+* Arquivos diversos
+
+Os dados armazenados podem ser recuperados posteriormente para:
+
+* Análise
+* Relatórios
+* Dashboards
+* Processamento
+* Machine Learning
+* Inteligência Artificial
+
+---
+
+# Categorias de armazenamento de dados
+
+Há duas categorias amplas de armazenamento de dados comuns em uso:
+
+## 1. Armazenamentos de arquivos
+
+Utilizados para armazenar dados em arquivos.
+
+Exemplos:
+
+* CSV
+* JSON
+* XML
+* Parquet
+* Avro
+* Imagens
+* Vídeos
+* Documentos
+* Arquivos binários
+
+## 2. Bancos de dados
+
+Utilizados para armazenar, consultar e gerenciar dados de forma organizada.
+
+Exemplos:
+
+* Bancos relacionais
+* Bancos NoSQL
+* Data warehouses
+* Lakehouses
+* Bancos orientados a documentos
+* Bancos chave-valor
+
+---
+
+# Fatores para escolher um formato de arquivo
+
+O formato de arquivo específico usado para armazenar dados depende de muitos fatores, incluindo:
+
+* O tipo de dados que está sendo armazenado: estruturado, semiestruturado ou não estruturado.
+* Os aplicativos e serviços que precisam ler, gravar e processar os dados.
+* A necessidade de que os arquivos de dados sejam legíveis por seres humanos ou otimizados para armazenamento e processamento eficientes.
+
+---
+
+# Arquivos de texto delimitados
+
+Geralmente, os dados são armazenados em formato de texto sem formatação com delimitadores de campo e terminadores de linha específicos.
+
+O formato mais comum para dados delimitados é o **CSV (valores separados por vírgula)**, no qual os campos são separados por vírgulas e as linhas terminam com um retorno de carro ou nova linha.
+
+Opcionalmente, a primeira linha pode incluir os nomes de campo.
+
+📌 **Exemplo CSV:**
+
+```csv
+id,nome,cidade
+1,Eduarda,Porto Alegre
+2,João,São Paulo
+```
+
+Outros formatos comuns incluem:
+
+* **TSV**: valores separados por tabulação.
+* **Delimitado por espaço**: campos separados por espaços.
+* **Dados de largura fixa**: cada campo possui um número fixo de caracteres.
+
+O texto delimitado é uma boa opção para dados estruturados que precisam ser acessados por uma ampla variedade de aplicativos e serviços em um formato legível.
+
+💡 **Dica para a DP-900:**
+CSV é simples, legível e muito comum, mas não é o formato mais eficiente para grandes volumes de dados analíticos.
+
+---
+
+# JSON - JavaScript Object Notation
+
+O JSON é um formato muito utilizado no qual um esquema de documento hierárquico é usado para definir entidades de dados, chamadas de objetos, que têm vários atributos.
+
+Cada atributo pode ser um objeto ou uma coleção de objetos, tornando o JSON um formato flexível que é bom para dados estruturados e semiestruturados.
+
+Os objetos são delimitados por chaves `{ }` e as coleções por colchetes `[ ]`.
+
+Os atributos são representados por pares `name:value` e separados por vírgulas.
+
+📌 **Exemplo JSON:**
+
+```json
+{
+  "id": 1,
+  "nome": "Eduarda",
+  "cidade": "Porto Alegre",
+  "telefones": [
+    "99999-0000",
+    "98888-0000"
+  ]
+}
+```
+
+✅ Muito usado em:
+
+* APIs
+* Integrações
+* Aplicações web
+* Bancos NoSQL
+* Azure Cosmos DB
+
+💡 **Dica para a DP-900:**
+JSON é um dos principais exemplos de dados semiestruturados.
+
+---
+
+# XML - Extensible Markup Language
+
+O XML é um formato de dados legível que foi popular nos anos 90 e 2000.
+
+Ele tem sido amplamente substituído pelo formato JSON, que é menos detalhado, mas ainda há alguns sistemas que usam XML para representar dados.
+
+O XML usa marcas entre colchetes angulares `< >` para definir elementos e atributos.
+
+📌 **Exemplo XML:**
+
+```xml
+<cliente>
+  <id>1</id>
+  <nome>Eduarda</nome>
+  <cidade>Porto Alegre</cidade>
+</cliente>
+```
+
+✅ Ainda pode aparecer em:
+
+* Sistemas legados
+* Integrações antigas
+* Arquivos de configuração
+* Serviços corporativos
+
+💡 **Dica para a DP-900:**
+XML é legível, mas geralmente mais verboso que JSON.
+
+---
+
+# BLOB - Objeto Binário Grande
+
+Em última análise, todos os arquivos são armazenados como dados binários, ou seja, como `1` e `0`.
+
+Nos formatos legíveis descritos acima, os bytes de dados binários são mapeados em caracteres imprimíveis, normalmente por um esquema de codificação de caracteres, como ASCII ou Unicode.
+
+No entanto, alguns formatos de arquivo, particularmente para dados não estruturados, armazenam os dados como binários brutos que devem ser interpretados por aplicativos e renderizados.
+
+Os tipos comuns de dados armazenados como binários incluem:
+
+* Imagens
+* Vídeos
+* Áudios
+* Documentos específicos de aplicativos
+
+Ao trabalhar com dados como esse, os profissionais de dados geralmente se referem aos arquivos de dados como **BLOBs**, ou seja, **Objetos Binários Grandes**.
+
+✅ Exemplo no Azure:
+
+* Azure Blob Storage
+
+💡 **Dica para a DP-900:**
+BLOBs são muito associados ao armazenamento de arquivos não estruturados no Azure.
+
+---
+
+# Formatos de arquivo otimizados
+
+Embora os formatos legíveis para dados estruturados e semiestruturados possam ser úteis, normalmente eles não são otimizados para espaço de armazenamento ou processamento.
+
+Ao longo do tempo, alguns formatos de arquivo especializados que permitem compactação, indexação, armazenamento e processamento eficientes foram desenvolvidos.
+
+Alguns formatos de arquivo otimizados comuns incluem:
+
+* Parquet
+* Avro
+* Delta Lake
+
+---
+
+# Parquet
+
+Parquet é um formato de dados de coluna e o padrão de fato para data lakehouses modernos.
+
+É um projeto Apache.
+
+Um arquivo Parquet contém grupos de linhas. Os dados de cada coluna são armazenados juntos no mesmo grupo de linhas.
+
+Cada grupo de linhas contém uma ou mais partes de dados. Um arquivo Parquet inclui metadados que descrevem o conjunto de linhas encontrado em cada parte.
+
+Um aplicativo pode usar esses metadados para localizar rapidamente a parte correta de um determinado conjunto de linhas e recuperar os dados nas colunas especificadas para essas linhas.
+
+O Parquet é especializado em armazenar e processar tipos de dados aninhados com eficiência e dá suporte a esquemas eficientes de compactação e codificação.
+
+✅ Muito usado em:
+
+* Data lakes
+* Lakehouses
+* Engenharia de dados
+* Big Data
+* Apache Spark
+* Azure Databricks
+* Microsoft Fabric
+
+💡 **Dica para a DP-900:**
+Parquet é colunar, otimizado para consultas analíticas e muito usado em data lakes.
+
+---
+
+# Avro
+
+Avro é um formato baseado em linha.
+
+Ele foi criado pelo Apache.
+
+Cada arquivo contém um cabeçalho que descreve a estrutura dos dados no arquivo. Esse cabeçalho é armazenado como JSON.
+
+Os dados são armazenados como informações binárias em um ou mais blocos de registros.
+
+Um aplicativo usa as informações no cabeçalho para analisar os dados binários e extrair os campos contidos neles.
+
+O Avro é um formato bom para compactar dados e minimizar os requisitos de armazenamento e largura de banda de rede.
+
+✅ Muito usado em:
+
+* Processamento distribuído
+* Integrações de dados
+* Big Data
+* Streaming
+* Ecossistema Apache
+
+💡 **Dica para a DP-900:**
+Avro é orientado a linhas e possui esquema armazenado no cabeçalho.
+
+---
+
+# Delta Lake
+
+O Delta Lake é um formato de armazenamento de software livre que se baseia no Parquet adicionando um log de transações.
+
+Esse log permite:
+
+* Transações ACID
+* Controle de versão de dados
+* Atualizações confiáveis
+* Maior consistência em cima de arquivos armazenados em um data lake
+
+✅ Muito usado em:
+
+* Lakehouses
+* Azure Databricks
+* Microsoft Fabric
+* Pipelines analíticos modernos
+* Arquiteturas de dados escaláveis
+
+💡 **Dica para a DP-900:**
+Delta Lake adiciona confiabilidade ao data lake, principalmente por causa do log de transações e suporte a ACID.
+
+---
+
+# Tabela comparativa
+
+| Formato    | Tipo                           | Melhor uso                                 |
+| ---------- | ------------------------------ | ------------------------------------------ |
+| CSV        | Estruturado                    | Dados simples e legíveis                   |
+| JSON       | Semiestruturado                | APIs e documentos flexíveis                |
+| XML        | Semiestruturado                | Sistemas legados                           |
+| BLOB       | Não estruturado                | Imagens, vídeos, áudios e documentos       |
+| Parquet    | Otimizado / colunar            | Consultas analíticas e data lakes          |
+| Avro       | Otimizado / baseado em linha   | Compactação e transporte de dados          |
+| Delta Lake | Otimizado / baseado em Parquet | Lakehouse, versionamento e transações ACID |
+
+---
+
+# Resumo para revisão
+
+* Dados são fatos, descrições, números ou observações.
+* Dados estruturados seguem um esquema fixo.
+* Dados semiestruturados possuem alguma organização, mas permitem variação.
+* Dados não estruturados não possuem uma estrutura definida.
+* CSV é simples e legível.
+* JSON é flexível e muito usado em APIs.
+* XML é mais antigo e mais verboso.
+* BLOBs armazenam arquivos binários, como imagens, vídeos e documentos.
+* Parquet é colunar e otimizado para análise.
+* Avro é baseado em linhas e eficiente para compactação.
+* Delta Lake adiciona transações ACID e versionamento ao data lake.
+
+---
+
+# Pontos importantes para a prova DP-900
+
+✅ Saber diferenciar:
+
+* Dados estruturados
+* Dados semiestruturados
+* Dados não estruturados
+
+✅ Saber reconhecer exemplos:
+
+| Conceito         | Exemplo              |
+| ---------------- | -------------------- |
+| Estruturado      | Tabela SQL           |
+| Semiestruturado  | JSON                 |
+| Não estruturado  | Imagem, vídeo, áudio |
+| BLOB             | Arquivo binário      |
+| Colunar          | Parquet              |
+| Baseado em linha | Avro                 |
+| Lakehouse        | Delta Lake           |
+
+✅ Associar serviços Azure:
+
+| Tipo de dado     | Serviço Azure relacionado     |
+| ---------------- | ----------------------------- |
+| Estruturado      | Azure SQL Database            |
+| Semiestruturado  | Azure Cosmos DB               |
+| Não estruturado  | Azure Blob Storage            |
+| Dados analíticos | Azure Data Lake Storage       |
+| Big Data / Spark | Azure Databricks              |
+| Lakehouse        | Microsoft Fabric / Delta Lake |
+
+---
+
+# Saiba mais
+
+* [Microsoft Learn - Explore os principais conceitos de dados](https://learn.microsoft.com/en-us/training/paths/azure-data-fundamentals-explore-core-data-concepts/)
+* [Guia oficial do exame DP-900](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/dp-900)
+* [Certificação Microsoft Azure Data Fundamentals](https://learn.microsoft.com/en-us/credentials/certifications/azure-data-fundamentals/)
+* [Formatos de dados no Azure Databricks](https://learn.microsoft.com/en-us/azure/databricks/query/formats/)
+* [Formatos compatíveis no Azure Data Explorer](https://learn.microsoft.com/pt-br/azure/data-explorer/ingestion-supported-formats)
+* [Leitura de arquivos no Azure Databricks: CSV, JSON, XML, Parquet, Avro e outros](https://learn.microsoft.com/pt-br/azure/databricks/sql/language-manual/functions/read_files)
+
+---
+
+# Status
+
+✅ Página criada para estudos da certificação **DP-900 - Microsoft Azure Data Fundamentals**.
