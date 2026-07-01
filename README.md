@@ -39,13 +39,12 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
 | 02 | Tipos de Bancos de Dados | ✅ Concluído | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
 | 03 | Processamento Transacional e Analítico | ✅ Concluído | [Acessar](./03-Processamento-Transacional-e-Analitico/README.md) |
-| 04 | Plataformas Modernas de Análise | ⏳ Em breve | - |
-| 05 | Serviços de Dados no Azure | ⏳ Em breve | - |
-| 06 | Power BI e Modelos Semânticos | ⏳ Em breve | - |
-| 07 | Governança de Dados | ⏳ Em breve | - |
-| 08 | Revisão Geral DP-900 | ⏳ Em breve | - |
+| 04 | Funções de Trabalho com Dados | ⏳ Em Andamento | [Acessar](./04-Funcoes-de-Trabalho-com-Dados/README.md) |
+| 05 | Serviços de Dados Relacionais no Azure | ⏳ Em breve | - |
+| 06 | Serviços de Dados Não Relacionais no Azure | ⏳ Em breve | - |
+| 07 | Análise em Larga Escala | ⏳ Em breve | - |
+| 08 | Power BI | ⏳ Em breve | - |
 | 09 | Simulados e Questões | ⏳ Em breve | - |
-
 
 <img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP900" width="100%">
 
