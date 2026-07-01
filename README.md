@@ -37,8 +37,8 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | Módulo | Tema | Status | Link |
 |---|---|---|---|
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
-| 02 | Tipos de Bancos de Dados | ⏳ Em andamento | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
-| 03 | Processamento Transacional e Analítico | ⏳ Em breve | - |
+| 02 | Tipos de Bancos de Dados | ✅ Concluído | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
+| 03 | Processamento Transacional e Analítico | ✅ Concluído | [Acessar](./03-Processamento-Transacional-e-Analitico/README.md) |
 | 04 | Plataformas Modernas de Análise | ⏳ Em breve | - |
 | 05 | Serviços de Dados no Azure | ⏳ Em breve | - |
 | 06 | Power BI e Modelos Semânticos | ⏳ Em breve | - |
