@@ -37,15 +37,14 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | Módulo | Tema | Status | Link |
 |---|---|---|---|
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
-| 02 | Bancos Relacionais | ⏳ Em breve | - |
-| 03 | Bancos Não Relacionais | ⏳ Em breve | - |
-| 04 | Azure SQL | ⏳ Em breve | - |
-| 05 | Azure Storage | ⏳ Em breve | - |
-| 06 | Azure Cosmos DB | ⏳ Em breve | - |
-| 07 | Analytics | ⏳ Em breve | - |
-| 08 | Microsoft Fabric | ⏳ Em breve | - |
-| 09 | Power BI | ⏳ Em breve | - |
-| 10 | Simulados | ⏳ Em breve | - |
+| 02 | Tipos de Bancos de Dados | ⏳ Em andamento | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
+| 03 | Processamento Transacional e Analítico | ⏳ Em breve | - |
+| 04 | Plataformas Modernas de Análise | ⏳ Em breve | - |
+| 05 | Serviços de Dados no Azure | ⏳ Em breve | - |
+| 06 | Power BI e Modelos Semânticos | ⏳ Em breve | - |
+| 07 | Governança de Dados | ⏳ Em breve | - |
+| 08 | Revisão Geral DP-900 | ⏳ Em breve | - |
+| 09 | Simulados e Questões | ⏳ Em breve | - |
 
 
 <img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP900" width="100%">
