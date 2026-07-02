@@ -38,6 +38,7 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
 | 02 | Tipos de Bancos de Dados | ✅ Concluído | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
 | 03 | Processamento Transacional e Analítico | ✅ Concluído | [Acessar](./03-Processamento-Transacional-e-Analitico/README.md) |
+<<<<<<< HEAD
 | 04 | Plataformas Modernas de Análise | ✅ Concluído | [Acessar](./04-Plataformas-Modernas-de-Analise/README.md) |
 | 05 | Serviços de Dados Relacionais no Azure | ✅ Concluído | [Acessar](./05-Servicos-de-Dados-Relacionais-no-Azure/README.md) |
 | 06 | Serviços de Dados Não Relacionais no Azure | ✅ Concluído | [Acessar](./06-Servicos-de-Dados-Nao-Relacionais-no-Azure/README.md) |
@@ -45,6 +46,14 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 | 08 | Visualização e Análise com Power BI | ✅ Concluído | [Acessar](./08-Visualizacao-e-Analise-com-Power-BI/README.md) |
 | 09 | Revisão Geral da DP-900 | ✅ Concluído | [Acessar](./09-Revisao-Geral-da-DP900/README.md) |
 | 10 | Simulados e Questões Comentadas | ✅ Concluído | [Acessar](./10-Simulados-e-Questoes-Comentadas/README.md) |
+=======
+| 04 | Funções de Trabalho com Dados | ⏳ Em Andamento | [Acessar](./04-Funcoes-de-Trabalho-com-Dados/README.md) |
+| 05 | Serviços de Dados Relacionais no Azure | ⏳ Em breve | - |
+| 06 | Serviços de Dados Não Relacionais no Azure | ⏳ Em breve | - |
+| 07 | Análise em Larga Escala | ⏳ Em breve | - |
+| 08 | Power BI | ⏳ Em breve | - |
+| 09 | Simulados e Questões | ⏳ Em breve | - |
+>>>>>>> 41d239e92d3c73f48dcd34ccfceb9045ff381eb5
 
 <img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP900" width="100%">
 
