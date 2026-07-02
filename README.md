@@ -33,19 +33,18 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 - ✅ Simulados e Questões
 
 ## 📂 Estrutura
-
 | Módulo | Tema | Status | Link |
 |---|---|---|---|
 | 01 | Conceitos de Dados | ✅ Concluído | [Acessar](./01-Conceitos-de-Dados/README.md) |
 | 02 | Tipos de Bancos de Dados | ✅ Concluído | [Acessar](./02-Tipos-de-Bancos-de-Dados/README.md) |
 | 03 | Processamento Transacional e Analítico | ✅ Concluído | [Acessar](./03-Processamento-Transacional-e-Analitico/README.md) |
-| 04 | Plataformas Modernas de Análise | ⏳ Em breve | - |
-| 05 | Serviços de Dados no Azure | ⏳ Em breve | - |
-| 06 | Power BI e Modelos Semânticos | ⏳ Em breve | - |
-| 07 | Governança de Dados | ⏳ Em breve | - |
-| 08 | Revisão Geral DP-900 | ⏳ Em breve | - |
-| 09 | Simulados e Questões | ⏳ Em breve | - |
-
+| 04 | Plataformas Modernas de Análise | ✅ Concluído | [Acessar](./04-Plataformas-Modernas-de-Analise/README.md) |
+| 05 | Serviços de Dados Relacionais no Azure | ✅ Concluído | [Acessar](./05-Servicos-de-Dados-Relacionais-no-Azure/README.md) |
+| 06 | Serviços de Dados Não Relacionais no Azure | ✅ Concluído | [Acessar](./06-Servicos-de-Dados-Nao-Relacionais-no-Azure/README.md) |
+| 07 | Análise em Escala com o Azure | ✅ Concluído | [Acessar](./07-Analise-em-Escala-com-o-Azure/README.md) |
+| 08 | Visualização e Análise com Power BI | ✅ Concluído | [Acessar](./08-Visualizacao-e-Analise-com-Power-BI/README.md) |
+| 09 | Revisão Geral da DP-900 | ✅ Concluído | [Acessar](./09-Revisao-Geral-da-DP900/README.md) |
+| 10 | Simulados e Questões Comentadas | ✅ Concluído | [Acessar](./10-Simulados-e-Questoes-Comentadas/README.md) |
 
 <img src="./assets/tecnologias-servicos.png" alt="Tecnologias e Serviços - DP900" width="100%">
 
@@ -57,4 +56,8 @@ Este repositório reúne minhas anotações, resumos, exercícios, laboratórios
 
 ---
 
-⭐ Este repositório faz parte da minha jornada de desenvolvimento profissional em Análise e Engenharia de Dados.
+## ⭐ Apoie este projeto
+
+Se este material ajudou nos seus estudos para a DP-900, considere deixar uma ⭐ no repositório.
+
+Isso incentiva a criação de novos materiais gratuitos para a comunidade. 

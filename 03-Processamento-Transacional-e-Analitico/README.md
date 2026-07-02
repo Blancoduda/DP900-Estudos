@@ -2,48 +2,49 @@
 
 ## 🎯 Objetivo
 
-Compreender como os dados são processados em sistemas transacionais (OLTP) e analíticos (OLAP), conhecer as propriedades ACID, os processos ETL e ELT, além das plataformas modernas de análise disponíveis no Microsoft Azure.
+Compreender as diferenças entre processamento transacional (OLTP) e processamento analítico (OLAP), conhecer as propriedades ACID, os processos ETL e ELT, além das principais plataformas modernas de análise utilizadas no Microsoft Azure.
 
 ---
 
 # Processamento de Dados Transacionais (OLTP)
 
-Um sistema de processamento de dados transacionais (**OLTP - Online Transaction Processing**) é o que a maioria das pessoas considera a principal função da computação empresarial.
+O **OLTP (Online Transaction Processing)** representa o processamento de dados utilizado pelas aplicações do dia a dia das empresas.
 
-Um sistema transacional registra transações que encapsulam eventos específicos que a organização deseja controlar.
+Esses sistemas registram transações que representam eventos específicos do negócio.
 
-Uma transação pode ser:
+Exemplos:
 
-- Financeira, como uma transferência entre contas bancárias;
-- Comercial, como o pagamento de um pedido em um e-commerce;
-- Operacional, como o cadastro de um cliente.
+- Transferência bancária
+- Compra em um e-commerce
+- Cadastro de um cliente
+- Emissão de uma nota fiscal
 
-Pense na transação como uma unidade de trabalho pequena e discreta.
+Uma transação deve ser tratada como uma unidade única de trabalho.
 
 ---
 
-# Operações CRUD
+# CRUD
 
-As soluções OLTP dependem de um banco de dados otimizado para operações de leitura e gravação.
-
-Essas operações são conhecidas como **CRUD**:
+Os sistemas OLTP executam constantemente operações conhecidas como **CRUD**.
 
 | Operação | Descrição |
 |----------|-----------|
 | Create | Criar um registro |
-| Read | Ler um registro |
+| Read | Consultar um registro |
 | Update | Atualizar um registro |
 | Delete | Excluir um registro |
 
-Essas operações são executadas de maneira transacional para garantir a integridade dos dados.
+Essas operações precisam manter a integridade dos dados armazenados.
 
 ---
 
 # Propriedades ACID
 
-Os sistemas OLTP utilizam transações compatíveis com as propriedades **ACID**.
+Os bancos de dados transacionais seguem quatro propriedades fundamentais conhecidas como **ACID**.
 
-## Atomicidade (Atomicity)
+---
+
+## 🅰️ Atomicidade (Atomicity)
 
 Cada transação é tratada como uma única unidade.
 
@@ -52,141 +53,220 @@ Ela será:
 - totalmente concluída;
 - ou totalmente cancelada.
 
-**Exemplo**
+### Exemplo
 
-Uma transferência bancária precisa:
+Uma transferência bancária envolve:
 
-- Debitar uma conta;
-- Creditar outra conta.
+- Debitar dinheiro da conta A;
+- Creditar dinheiro na conta B.
 
-Se uma das operações falhar, toda a transação será cancelada.
-
----
-
-## Consistência (Consistency)
-
-Uma transação só pode levar o banco de dados de um estado válido para outro estado válido.
-
-Após uma transferência bancária, os saldos das contas devem refletir corretamente a movimentação realizada.
+Se uma dessas operações falhar, toda a transação será cancelada.
 
 ---
 
-## Isolamento (Isolation)
+## 🅲 Consistência (Consistency)
 
-Transações simultâneas não podem interferir umas nas outras.
+Uma transação sempre leva o banco de dados de um estado válido para outro estado válido.
 
-Enquanto uma transferência está acontecendo, outra consulta ao saldo deve retornar informações consistentes.
+Após uma transferência bancária, os saldos precisam refletir corretamente a movimentação realizada.
 
 ---
 
-## Durabilidade (Durability)
+## 🅸 Isolamento (Isolation)
 
-Depois que uma transação é confirmada, seus dados permanecem armazenados.
+Transações executadas ao mesmo tempo não podem interferir umas nas outras.
 
-Mesmo que o banco seja desligado logo após a confirmação, as alterações continuarão gravadas.
+Enquanto uma transferência está sendo realizada, outra consulta ao saldo não pode visualizar informações inconsistentes.
+
+---
+
+## 🅳 Durabilidade (Durability)
+
+Depois que uma transação é confirmada, ela permanece armazenada permanentemente.
+
+Mesmo que ocorra uma falha no servidor, os dados continuarão gravados.
 
 ---
 
 # Processamento Analítico (OLAP)
 
-O processamento analítico (**OLAP - Online Analytical Processing**) utiliza sistemas predominantemente de leitura.
+O **OLAP (Online Analytical Processing)** é utilizado para análise de grandes volumes de dados históricos.
 
-Esses sistemas armazenam grandes volumes de dados históricos ou métricas de negócio.
+Esses sistemas são predominantemente de leitura.
 
-A análise pode ser baseada:
+Seu objetivo é responder perguntas do negócio através de consultas analíticas.
 
-- em um único momento;
-- ou em vários períodos históricos.
+Exemplos:
+
+- Qual foi o faturamento do último trimestre?
+- Qual produto vendeu mais?
+- Qual região apresentou maior crescimento?
+
+---
+
+# OLTP x OLAP
+
+| OLTP | OLAP |
+|------|------|
+| Processamento transacional | Processamento analítico |
+| Muitas escritas | Muitas leituras |
+| Dados atuais | Dados históricos |
+| CRUD | Agregações |
+| Operações rápidas | Consultas complexas |
+| Sistemas operacionais | Dashboards e BI |
 
 ---
 
 # ETL e ELT
 
-Os dados operacionais são preparados para análise utilizando processos de integração de dados.
+Antes que os dados possam ser analisados, eles normalmente passam por processos de integração.
 
-## ETL
-
-**Extract → Transform → Load**
-
-Os dados são:
-
-1. Extraídos;
-2. Transformados;
-3. Carregados.
-
-Esse modelo é tradicionalmente utilizado em Data Warehouses.
+Existem dois padrões principais.
 
 ---
 
-## ELT
-
-**Extract → Load → Transform**
+## ETL (Extract, Transform, Load)
 
 Os dados são:
 
-1. Extraídos;
-2. Carregados;
-3. Transformados posteriormente.
+1. Extraídos
+2. Transformados
+3. Carregados
 
-Esse padrão é muito comum em arquiteturas modernas de Lakehouse.
+Fluxo:
+
+```text
+Origem
+   ↓
+Extração
+   ↓
+Transformação
+   ↓
+Data Warehouse
+```
+
+Muito utilizado em arquiteturas tradicionais de Data Warehouse.
 
 ---
 
-# Data Warehouse e Data Lakehouse
+## ELT (Extract, Load, Transform)
 
-Após o processamento ETL ou ELT, os dados são carregados em um esquema de tabelas.
+Os dados são:
 
-Isso normalmente ocorre em:
+1. Extraídos
+2. Carregados
+3. Transformados
 
-- um **Data Warehouse**, utilizando um mecanismo SQL relacional;
-- um **Data Lakehouse**, utilizando abstrações tabulares sobre arquivos armazenados em um Data Lake.
+Fluxo:
+
+```text
+Origem
+   ↓
+Data Lake
+   ↓
+Transformação
+   ↓
+Lakehouse
+```
+
+É o padrão mais utilizado em arquiteturas modernas de Lakehouse.
+
+---
+
+# Data Warehouse
+
+O **Data Warehouse** é um repositório centralizado para armazenamento de dados históricos.
+
+Características:
+
+- Dados estruturados
+- Modelo relacional
+- Consultas analíticas
+- Business Intelligence
+
+---
+
+# Data Lake
+
+O **Data Lake** armazena grandes volumes de dados em diversos formatos.
+
+Pode armazenar:
+
+- CSV
+- JSON
+- Parquet
+- Imagens
+- Vídeos
+- Áudios
+- Logs
+
+Os dados normalmente permanecem em seu formato original.
+
+---
+
+# Lakehouse
+
+O **Lakehouse** combina características do Data Lake e do Data Warehouse.
+
+Ele permite:
+
+- Armazenar dados brutos;
+- Trabalhar com dados estruturados;
+- Executar consultas SQL;
+- Utilizar recursos analíticos modernos.
+
+É uma das arquiteturas mais utilizadas atualmente.
 
 ---
 
 # Modelo Semântico (OLAP)
 
-Os dados do Data Warehouse podem ser agregados em um modelo OLAP.
+Após o processamento dos dados, eles podem ser organizados em um **Modelo Semântico**.
 
-Atualmente, esse modelo é mais conhecido como **Modelo Semântico** (Semantic Model).
+Antigamente era conhecido como **Cubo OLAP**.
 
-Historicamente, era chamado de **Cubo OLAP**.
+Nesse modelo são criadas:
 
-Valores numéricos (medidas) são agregados a partir das tabelas fato utilizando as dimensões.
+- Medidas
+- Dimensões
+- Hierarquias
 
-**Exemplo**
+Exemplo:
 
-A receita de vendas pode ser analisada por:
+A receita pode ser analisada por:
 
-- Data;
-- Cliente;
-- Produto.
+- Produto
+- Cliente
+- Data
+- Região
 
-Os modelos semânticos do **Power BI** são um exemplo bastante comum dessa abordagem.
+No Microsoft Azure, o exemplo mais comum é o **Modelo Semântico do Power BI**.
 
 ---
 
 # Relatórios e Dashboards
 
-Os dados armazenados no:
+Os dados armazenados em:
 
-- Data Lake;
-- Data Warehouse;
-- Modelo Semântico;
+- Data Lake
+- Data Warehouse
+- Modelo Semântico
 
-podem ser utilizados para produzir:
+podem ser utilizados para gerar:
 
-- Relatórios;
-- Dashboards;
-- Visualizações;
-- Indicadores.
+- Dashboards
+- Relatórios
+- KPIs
+- Indicadores
+- Visualizações
 
 ---
 
 # Plataformas Modernas de Análise
 
-O Microsoft Azure oferece diversos serviços gerenciados que abrangem todo o pipeline analítico, desde a ingestão dos dados até a geração de relatórios.
+O Microsoft Azure disponibiliza plataformas que cobrem praticamente todo o pipeline analítico.
 
-As principais plataformas são:
+As principais são:
 
 - Microsoft Fabric
 - Azure Databricks
@@ -196,16 +276,18 @@ As principais plataformas são:
 
 # Microsoft Fabric
 
-O **Microsoft Fabric** é uma plataforma SaaS (Software as a Service) unificada.
+O **Microsoft Fabric** é uma plataforma SaaS (Software as a Service).
 
-Ela reúne em um único workspace recursos de:
+Ela reúne em um único ambiente:
 
-- Armazenamento;
-- Engenharia de Dados;
-- Data Warehouse;
-- Ciência de Dados;
-- Business Intelligence;
-- Relatórios.
+- Engenharia de Dados
+- Data Warehouse
+- Ciência de Dados
+- Business Intelligence
+- Relatórios
+- Armazenamento
+
+Seu objetivo é unificar toda a plataforma analítica.
 
 ---
 
@@ -213,35 +295,32 @@ Ela reúne em um único workspace recursos de:
 
 O **Azure Databricks** é uma plataforma voltada para:
 
-- Engenharia de Dados;
-- Ciência de Dados;
-- Big Data;
-- Machine Learning.
+- Engenharia de Dados
+- Ciência de Dados
+- Machine Learning
+- Big Data
 
-Seu formato padrão de armazenamento é o **Delta Lake**, baseado em:
+Seu formato padrão de armazenamento é o **Delta Lake**.
 
-- Parquet;
-- Log de transações.
+O Delta Lake adiciona ao Parquet:
 
-Esse formato permite:
-
-- Controle de versão;
-- Transações ACID;
-- Atualizações confiáveis.
+- Controle de versão
+- Transações ACID
+- Atualizações confiáveis
 
 ---
 
 # Microsoft Purview
 
-O **Microsoft Purview** é o serviço responsável por:
+O **Microsoft Purview** é o serviço de governança de dados da Microsoft.
 
-- Governança de Dados;
-- Segurança;
-- Classificação;
-- Descoberta;
-- Conformidade.
+Ele permite:
 
-Ele permite descobrir, proteger e gerenciar dados em diferentes fontes.
+- Descobrir dados
+- Classificar informações
+- Proteger dados
+- Gerenciar conformidade
+- Aplicar políticas de segurança
 
 ---
 
@@ -251,62 +330,111 @@ Uma arquitetura bastante utilizada em Lakehouses é a **Arquitetura Medalhão**.
 
 Ela organiza os dados em três camadas.
 
-## Bronze 🥉
+## 🥉 Bronze
 
-Dados brutos provenientes dos sistemas de origem.
+Contém os dados brutos exatamente como foram recebidos.
 
-Não há transformações.
+Não são realizadas transformações.
 
-O objetivo é preservar os dados originais para reprocessamentos futuros.
+Objetivo:
 
----
-
-## Silver 🥈
-
-Dados limpos.
-
-Nesta etapa são realizadas transformações como:
-
-- Remoção de duplicidades;
-- Padronização de tipos;
-- Tratamento de inconsistências.
+- Preservar os dados originais
+- Permitir reprocessamentos
 
 ---
 
-## Gold 🥇
+## 🥈 Silver
 
-Dados agregados e preparados para consumo pelo negócio.
+Contém dados tratados.
+
+Nesta etapa são realizadas:
+
+- Limpeza
+- Padronização
+- Remoção de duplicidades
+- Correção de inconsistências
+
+---
+
+## 🥇 Gold
+
+Contém dados preparados para o negócio.
 
 São utilizados em:
 
-- Dashboards;
-- Relatórios;
-- Indicadores;
-- Análises.
+- Dashboards
+- Relatórios
+- Indicadores
+- Modelos Analíticos
+
+---
+
+# Comparação
+
+| Conceito | Objetivo |
+|----------|----------|
+| OLTP | Registrar transações |
+| CRUD | Operações básicas do banco |
+| ACID | Garantir integridade das transações |
+| OLAP | Análise de dados |
+| ETL | Transformar antes de carregar |
+| ELT | Transformar depois de carregar |
+| Data Warehouse | Armazenamento analítico |
+| Data Lake | Armazenamento de dados brutos |
+| Lakehouse | Combinação de Data Lake e Data Warehouse |
 
 ---
 
 # Resumo
 
-- OLTP → processamento transacional.
-- CRUD → operações básicas em bancos de dados.
-- ACID → propriedades que garantem integridade das transações.
-- OLAP → processamento analítico.
-- ETL → Extrair, Transformar e Carregar.
-- ELT → Extrair, Carregar e Transformar.
-- Data Warehouse → armazenamento analítico estruturado.
-- Lakehouse → arquitetura moderna baseada em Data Lake.
-- Modelo Semântico → camada utilizada pelo Power BI.
-- Microsoft Fabric → plataforma unificada de análise.
-- Azure Databricks → engenharia de dados e ciência de dados.
-- Microsoft Purview → governança de dados.
-- Arquitetura Medalhão → Bronze, Silver e Gold.
+- OLTP processa transações do dia a dia.
+- CRUD representa as operações básicas dos bancos de dados.
+- ACID garante integridade das transações.
+- OLAP é utilizado para análise de dados.
+- ETL transforma antes de carregar.
+- ELT transforma após carregar.
+- Data Warehouse armazena dados estruturados.
+- Data Lake armazena dados em diversos formatos.
+- Lakehouse une Data Lake e Data Warehouse.
+- Microsoft Fabric é uma plataforma unificada de análise.
+- Azure Databricks utiliza Delta Lake.
+- Microsoft Purview é responsável pela governança de dados.
+- A Arquitetura Medalhão organiza os dados nas camadas Bronze, Silver e Gold.
+
+---
+
+# 🎯 O que costuma cair na DP-900
+
+✅ Diferença entre OLTP e OLAP.
+
+✅ CRUD.
+
+✅ Propriedades ACID.
+
+✅ ETL x ELT.
+
+✅ Data Warehouse x Data Lake x Lakehouse.
+
+✅ Microsoft Fabric.
+
+✅ Azure Databricks.
+
+✅ Microsoft Purview.
+
+✅ Arquitetura Medalhão.
 
 ---
 
 # 📚 Saiba mais
 
 - https://learn.microsoft.com/training/paths/azure-data-fundamentals-explore-core-data-concepts/
-- https://learn.microsoft.com/azure/databricks/
 - https://learn.microsoft.com/fabric/
+- https://learn.microsoft.com/azure/databricks/
 - https://learn.microsoft.com/purview/
+- https://learn.microsoft.com/azure/architecture/data-guide/
+
+---
+
+## 📌 Próximo módulo
+
+➡️ **04 - Serviços de Dados Relacionais no Azure**

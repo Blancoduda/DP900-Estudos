@@ -2,22 +2,22 @@
 
 ## 🎯 Objetivo
 
-Compreender as diferenças entre bancos de dados relacionais e não relacionais (NoSQL), conhecer seus principais tipos, características e casos de uso, além de entender quando utilizar cada abordagem no Azure.
+Compreender os principais tipos de bancos de dados utilizados atualmente, conhecer as diferenças entre bancos de dados relacionais e não relacionais (NoSQL), identificar seus principais modelos e entender quando utilizar cada um deles.
 
 ---
 
-# O que é um banco de dados?
+# O que é um Banco de Dados?
 
 Um banco de dados é um sistema utilizado para armazenar, organizar, consultar e gerenciar informações de forma estruturada.
 
-Seu principal objetivo é permitir que aplicações armazenem dados com segurança, integridade e desempenho.
+Seu principal objetivo é armazenar dados de maneira segura, organizada e eficiente, permitindo que aplicações consultem e atualizem essas informações.
 
-Exemplos:
+Exemplos de utilização:
 
 - Cadastro de clientes
 - Produtos
 - Pedidos
-- Transações bancárias
+- Contas bancárias
 - Redes sociais
 - Sensores IoT
 
@@ -25,49 +25,53 @@ Exemplos:
 
 # Bancos de Dados Relacionais
 
-Os bancos de dados relacionais são utilizados para armazenar dados estruturados.
+Os bancos de dados relacionais são comumente utilizados para armazenar e consultar **dados estruturados**.
 
-Os dados são organizados em tabelas compostas por:
+Os dados são organizados em tabelas que representam entidades, como:
 
-- Linhas (registros)
-- Colunas (atributos)
+- Clientes
+- Produtos
+- Pedidos
+- Funcionários
 
-Cada tabela representa uma entidade do negócio.
+Cada linha representa um registro e cada coluna representa um atributo da entidade.
 
-Exemplo:
+## Exemplo
 
 ### Clientes
 
-| ID | Nome | Cidade |
-|----|-------|---------|
-|1|Eduarda|Porto Alegre|
-|2|João|São Paulo|
+| ClienteID | Nome | Cidade |
+|------------|--------|-----------|
+| 1 | Eduarda | Porto Alegre |
+| 2 | João | São Paulo |
 
 ### Pedidos
 
-| Pedido | ClienteID | Valor |
-|---------|-----------|-------|
-|1001|1|250,00|
-|1002|2|89,90|
+| PedidoID | ClienteID | Valor |
+|------------|------------|---------|
+| 1001 | 1 | R$ 250,00 |
+| 1002 | 2 | R$ 89,90 |
 
-Observe que o pedido não repete todas as informações do cliente.
+Observe que a tabela **Pedidos** não armazena novamente o nome do cliente.
 
-Ele apenas armazena o **ClienteID**, criando um relacionamento entre as tabelas.
+Ela apenas referencia o **ClienteID**.
 
 ---
 
 # Chave Primária (Primary Key)
 
-Cada registro possui uma identificação única chamada **Chave Primária (Primary Key)**.
+Cada registro possui uma identificação única chamada **Chave Primária**.
+
+Ela garante que dois registros nunca tenham o mesmo identificador.
 
 Exemplo:
 
 | ClienteID | Nome |
-|-----------|------|
-|1|Eduarda|
-|2|João|
+|------------|---------|
+| 1 | Eduarda |
+| 2 | João |
 
-Nesse caso:
+Neste caso:
 
 ```
 ClienteID
@@ -75,55 +79,54 @@ ClienteID
 
 é a chave primária.
 
-Ela garante que não existam dois clientes com o mesmo identificador.
-
 ---
 
 # Chave Estrangeira (Foreign Key)
 
-Uma chave estrangeira referencia a chave primária de outra tabela.
+A chave estrangeira é utilizada para relacionar tabelas.
+
+Ela faz referência à chave primária de outra tabela.
 
 Exemplo:
 
 Pedidos
 
-| Pedido | ClienteID |
-|---------|-----------|
+| PedidoID | ClienteID |
+|------------|------------|
 |1001|1|
 
-O valor **1** aponta para o cliente Eduarda.
-
-Esse relacionamento evita duplicação de dados.
+O valor **1** faz referência ao cliente Eduarda.
 
 ---
 
 # Normalização
 
-A normalização é um processo utilizado para organizar os dados e reduzir redundâncias.
+Os bancos relacionais utilizam um processo chamado **Normalização**.
 
 Seu objetivo é:
 
-- Evitar duplicação
-- Melhorar consistência
+- Eliminar dados duplicados
+- Reduzir redundância
+- Garantir consistência
 - Facilitar manutenção
 
-Em vez de repetir os dados do cliente em cada pedido, o banco armazena apenas a referência (ClienteID).
+Por exemplo, os dados do cliente são armazenados apenas uma vez, mesmo que ele realize vários pedidos.
 
 ---
 
-# SQL
+# SQL (Structured Query Language)
 
-Os bancos relacionais utilizam SQL (Structured Query Language).
+Os bancos relacionais utilizam a linguagem SQL para gerenciar os dados.
 
-SQL permite:
+Com SQL é possível:
 
 - Criar tabelas
-- Inserir dados
+- Inserir registros
 - Atualizar registros
 - Excluir registros
 - Consultar informações
 
-Exemplo:
+### Exemplo
 
 ```sql
 SELECT Nome
@@ -145,58 +148,68 @@ WHERE Cidade = 'Porto Alegre';
 
 # Bancos de Dados Não Relacionais (NoSQL)
 
-Os bancos NoSQL não exigem um esquema fixo.
+Os bancos de dados não relacionais **não exigem um esquema fixo**.
 
-São ideais para grandes volumes de dados ou dados com estrutura variável.
+Também são conhecidos como **NoSQL (Not Only SQL)**.
 
-Eles costumam oferecer:
+São indicados para aplicações que precisam de:
 
-- Alta escalabilidade
-- Alta disponibilidade
+- Escalabilidade
 - Flexibilidade
+- Alto volume de dados
+- Alta disponibilidade
+
+Alguns bancos NoSQL oferecem suporte a uma variante da linguagem SQL.
 
 ---
 
 # Tipos de Bancos NoSQL
 
-## 1. Chave-Valor
+Existem quatro modelos principais.
 
-Cada informação é composta por:
+---
+
+## 🔑 Banco de Dados Chave-Valor
+
+Cada registro é composto por:
 
 ```
 Chave → Valor
 ```
 
-Exemplo:
+Exemplo
 
 ```
 usuario123
+
 ↓
 
 {
-  "nome":"Eduarda"
+   "nome":"Eduarda"
 }
 ```
 
 Ideal para:
 
 - Cache
-- Sessões
+- Sessões de usuários
 - Configurações
 
 ---
 
-## 2. Documentos
+## 📄 Banco de Dados de Documentos
 
-Armazenam documentos JSON completos.
+É uma evolução do modelo chave-valor.
 
-Exemplo:
+O valor armazenado normalmente é um documento JSON.
+
+Exemplo
 
 ```json
 {
-   "cliente":"Eduarda",
-   "cidade":"Porto Alegre",
-   "idade":26
+    "cliente":"Eduarda",
+    "cidade":"Porto Alegre",
+    "idade":26
 }
 ```
 
@@ -208,91 +221,101 @@ Muito utilizado por:
 
 ---
 
-## 3. Família de Colunas
+## 📊 Banco de Dados Família de Colunas
 
-Organizam dados em grupos de colunas relacionadas.
+Armazena dados em linhas e colunas.
 
-Muito utilizados em Big Data.
+As colunas podem ser agrupadas em famílias de colunas relacionadas.
 
-Exemplo:
+Exemplo
 
 | Cliente | Dados Pessoais | Compras |
-|----------|---------------|----------|
+|----------|----------------|----------|
+
+Muito utilizado em soluções Big Data.
 
 ---
 
-## 4. Grafo
+## 🕸️ Banco de Dados em Grafo
 
-Representam entidades como nós e seus relacionamentos.
+Armazena entidades como **nós** conectados por **relacionamentos**.
 
-Exemplo:
+Exemplo
 
-```
+```text
 Eduarda
     │
-    │ segue
-    ▼
+ segue
+    │
 João
 ```
 
-Muito utilizados em:
+Muito utilizado em:
 
 - Redes sociais
 - Sistemas de recomendação
 - Detecção de fraudes
+- Mapas de relacionamento
 
 ---
 
 # Comparação
 
-| Relacional | Não Relacional |
-|------------|----------------|
+| Banco Relacional | Banco Não Relacional |
+|-----------------|----------------------|
+| Dados estruturados | Dados estruturados e semiestruturados |
 | Esquema fixo | Esquema flexível |
-| SQL | NoSQL |
-| Tabelas | Documentos, grafos, chave-valor |
-| Integridade forte | Escalabilidade elevada |
-| Ideal para transações | Ideal para grandes volumes |
+| Utiliza SQL | Utiliza NoSQL |
+| Tabelas | Documentos, Grafos, Chave-Valor e Colunas |
+| Alta consistência | Alta escalabilidade |
+| Ideal para transações | Ideal para grandes volumes de dados |
 
 ---
 
-# Azure
+# Serviços Azure
 
 | Serviço | Tipo |
 |----------|------|
 | Azure SQL Database | Relacional |
 | Azure Database for PostgreSQL | Relacional |
+| Azure Database for MySQL | Relacional |
 | Azure Cosmos DB | Não Relacional |
 
 ---
 
 # Resumo
 
-- Bancos relacionais utilizam tabelas.
-- Possuem chave primária e chave estrangeira.
+- Bancos relacionais armazenam dados em tabelas.
+- Utilizam chaves primárias e estrangeiras.
 - Utilizam SQL.
 - São altamente normalizados.
 
 Já os bancos NoSQL:
 
 - Não exigem esquema fixo.
-- São escaláveis.
+- São altamente escaláveis.
 - Possuem quatro modelos principais:
-  - Chave-valor
+  - Chave-Valor
   - Documento
-  - Família de colunas
+  - Família de Colunas
   - Grafo
 
 ---
 
-# 💡 Dicas para a DP-900
+# 🎯 O que costuma cair na DP-900
 
-✅ Saber diferenciar SQL e NoSQL.
+✅ Diferença entre SQL e NoSQL.
 
-✅ Saber quando utilizar cada um.
+✅ Identificar quando utilizar bancos relacionais.
 
-✅ Conhecer os quatro tipos de bancos NoSQL.
+✅ Identificar quando utilizar bancos NoSQL.
 
-✅ Saber que o Azure Cosmos DB é um banco NoSQL.
+✅ Conhecer os quatro modelos NoSQL.
+
+✅ Saber que:
+
+- Azure SQL Database → Banco Relacional
+- Azure Cosmos DB → Banco Não Relacional
 
 ---
 
@@ -300,4 +323,11 @@ Já os bancos NoSQL:
 
 - https://learn.microsoft.com/training/modules/explore-relational-data-offerings/
 - https://learn.microsoft.com/training/modules/explore-non-relational-data-offerings/
+- https://learn.microsoft.com/azure/azure-sql/
 - https://learn.microsoft.com/azure/cosmos-db/introduction
+
+---
+
+## 📌 Próximo módulo
+
+➡️ **03 - Processamento Transacional e Analítico**
